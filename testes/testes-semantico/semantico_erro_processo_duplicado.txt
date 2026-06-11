@@ -1,0 +1,10 @@
+processo Financas {
+    passo-inicio Op1 { descricao : "A" proximo : F1 }
+    passo-final F1 { descricao : "B" }
+}
+
+// Erro Semântico: Nome de processo repetido globalmente
+processo Financas {
+    passo-inicio Op2 { descricao : "C" proximo : F2 }
+    passo-final F2 { descricao : "D" }
+}

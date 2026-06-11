@@ -1,0 +1,12 @@
+processo LoopEterno {
+    // Erro Semântico: O processo compila na sintaxe mas falha por não ter nenhum 'passo-final'
+    passo-inicio Iniciar {
+        descricao : "Começar rota"
+        proximo : Processar
+    }
+
+    passo Processar {
+        descricao : "Trabalhando os dados"
+        proximo : Iniciar
+    }
+}

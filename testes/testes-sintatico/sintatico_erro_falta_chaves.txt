@@ -1,0 +1,13 @@
+processo AnaliseDeRisco {
+    passo-inicio Entrada {
+        descricao : "Verificar score"
+        se (alto) {
+            proximo : Bloquear
+        // Erro Sintático: Faltou fechar a chave do bloco 'se' antes do senao
+        senao {
+            proximo : Aprovar
+        }
+    }
+    passo-final Bloquear { descricao : "Negado" }
+    passo-final Aprovar { descricao : "Aceito" }
+}

@@ -1,0 +1,10 @@
+processo Fabrica {
+    passo-inicio Produzir {
+        descricao : "Montagem do chassi"
+        proximo : PinturaAutomotiva // Erro Semântico: indicado como destino mas nunca criado
+    }
+
+    passo-final Despachar {
+        descricao : "Ir para a concessionária"
+    }
+}

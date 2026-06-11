@@ -1,0 +1,19 @@
+processo Login {
+    passo-inicio Iniciar {
+        descricao : "Usuário digita credenciais"
+        proximo : Fim
+    }
+    passo-final Fim {
+        descricao : "Autenticado"
+    }
+}
+
+processo Logout {
+    passo-inicio Sair {
+        descricao : "Usuário clica em sair"
+        proximo : Concluido
+    }
+    passo-final Concluido {
+        descricao : "Sessão encerrada"
+    }
+}

@@ -1,0 +1,16 @@
+processo TriagemAtendimento {
+    passo-inicio Avaliar {
+        descricao : "Classificar a urgência da entrada"
+        se (critico) {
+            proximo : Emergencia
+        } senao se ("caso moderado") {
+            proximo : ConsultorioUrgentissimo
+        } senao {
+            proximo : FilaComum
+        }
+    }
+
+    passo-final Emergencia { descricao : "Sala Vermelha" }
+    passo-final ConsultorioUrgentissimo { descricao : "Sala Amarela" }
+    passo-final FilaComum { descricao : "Sala Verde" }
+}

@@ -1,0 +1,21 @@
+processo Logistica {
+    passo-inicio Enviar {
+        descricao : "Despachar pacote"
+        proximo : VerificarRastreio
+    }
+
+    passo VerificarRastreio {
+        descricao : "Checar código nos correios"
+        proximo : Fim
+    }
+
+    // Erro Semântico: Redefinição do passo 'VerificarRastreio' dentro do mesmo processo
+    passo VerificarRastreio {
+        descricao : "Ação duplicada"
+        proximo : Fim
+    }
+
+    passo-final Fim {
+        descricao : "Entregue"
+    }
+}

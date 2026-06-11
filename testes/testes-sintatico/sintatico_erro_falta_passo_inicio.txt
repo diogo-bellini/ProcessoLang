@@ -1,0 +1,10 @@
+processo FluxoSemInicio {
+    // Erro Sintático: Pulou direto para um passo normal, violando a regra estrutural do processo
+    passo Verificar {
+        descricao : "Tentando rodar sem ponto de partida"
+        proximo : Terminar
+    }
+    passo-final Terminar {
+        descricao : "Fim"
+    }
+}

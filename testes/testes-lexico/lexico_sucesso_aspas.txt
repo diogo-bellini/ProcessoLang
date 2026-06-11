@@ -1,0 +1,14 @@
+// Teste de flexibilidade de aspas e comentários
+processo TesteAspas {
+    passo-inicio Ini {
+        descricao : "Texto com aspas duplas funciona"
+        proximo : Meio
+    }
+    passo Meio {
+        descricao : 'Texto com aspas simples também funciona'
+        proximo : Fim
+    }
+    passo-final Fim {
+        descricao : "Fim do processo"
+    }
+}

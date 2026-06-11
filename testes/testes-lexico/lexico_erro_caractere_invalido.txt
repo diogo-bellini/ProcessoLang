@@ -1,0 +1,9 @@
+processo Cadastro {
+    passo-inicio Iniciar {
+        descricao : "Iniciando o sistema"
+        proximo : @ 
+    }
+    passo-final Fim {
+        descricao : "Fim"
+    }
+}

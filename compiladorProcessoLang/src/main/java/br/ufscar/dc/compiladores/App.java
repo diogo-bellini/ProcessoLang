@@ -1,13 +1,17 @@
 package br.ufscar.dc.compiladores;
 
 import org.antlr.v4.runtime.*;
+
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class App
 {
     public static void main( String[] args ) {
-        if (args.length == 0) {
-            System.err.println("Erro: Por favor, forneça o caminho do arquivo de teste por argumento.");
+        if (args.length < 2) {
+            System.err.println("Erro: Forneça o arquivo de entrada e o de saída.");
+            System.err.println("Exemplo: java -jar target/compiladorProcessoLang-1.0-SNAPSHOT-jar-with-dependencies.jar entrada.txt saida.dot");
             System.exit(1);
         }
 
@@ -26,12 +30,18 @@ public class App
             parser.addErrorListener(errorListener);
 
             ProcessoLangParser.ProgramaContext arvoreSintatica = parser.programa();
-            System.out.println("Análise Léxica e Sintática concluída com SUCESSO!");
 
             ProcessoLangSemantico semantico = new ProcessoLangSemantico();
             semantico.visit(arvoreSintatica);
-            System.out.println("Análise Semântica concluída com SUCESSO!");
 
+            ProcessoLangGeradorCodigo gerador = new ProcessoLangGeradorCodigo();
+            gerador.visit(arvoreSintatica);
+
+            try (PrintWriter out = new PrintWriter(new FileWriter(args[1]))) {
+                out.print(gerador.getCodigo());
+            }
+
+            System.out.println("Sucesso! Compilação e Geração de Código concluídas.");
         } catch (IOException e) {
             System.err.println("Erro ao abrir o arquivo: " + e.getMessage());
             System.exit(1);

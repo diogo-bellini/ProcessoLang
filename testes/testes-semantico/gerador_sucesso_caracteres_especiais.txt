@@ -1,0 +1,23 @@
+processo EscapingTeste {
+    passo-inicio Inicio_1 {
+        descricao: "O cliente diz: 'Quero isso agora!'"
+        proximo: Passo_2
+    }
+
+    passo Passo_2 {
+        descricao: 'Sistema calcula "imposto" de 10% -> Envia'
+        se (aprovado) {
+            proximo: Sucesso_Final
+        } senao {
+            proximo: Falha_Final
+        }
+    }
+
+    passo-final Sucesso_Final {
+        descricao: "Aprovado em 100%"
+    }
+
+    passo-final Falha_Final {
+        descricao: "Erro grave: (NullPointerException)"
+    }
+}

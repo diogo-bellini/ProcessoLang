@@ -1,0 +1,18 @@
+processo EdgeCaseEspacos {
+    passo-inicio    A    {
+        descricao 
+        
+        : 
+        ""
+        proximo:B
+    }
+
+    passo B {
+        descricao:          ' '
+        proximo     :     C
+    }
+
+    passo-final C {
+        descricao:"Fim"
+    }
+}

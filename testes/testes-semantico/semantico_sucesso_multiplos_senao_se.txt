@@ -1,0 +1,22 @@
+processo RoteadorCascata {
+    passo-inicio ReceberPacote {
+        descricao: "Analisar cabeçalho da requisição"
+        se ("rota 1") { 
+            proximo: RotaUm 
+        } senao se ('rota 2') { 
+            proximo: RotaDois 
+        } senao se ("rota 3") { 
+            proximo: RotaTres 
+        } senao se ("rota 4") {
+            proximo: RotaQuatro
+        } senao { 
+            proximo: Descartar 
+        }
+    }
+
+    passo-final RotaUm { descricao: "Sucesso 1" }
+    passo-final RotaDois { descricao: "Sucesso 2" }
+    passo-final RotaTres { descricao: "Sucesso 3" }
+    passo-final RotaQuatro { descricao: "Sucesso 4" }
+    passo-final Descartar { descricao: "Lixo" }
+}
